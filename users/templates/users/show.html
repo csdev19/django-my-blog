@@ -1,0 +1,8 @@
+{% block content %}
+  
+    {% for object in object_list %}
+      <p>{{ object.name }}</p>
+      <p>{{ object.gender }}</p>
+    {% endfor %}
+
+{% endblock content %}
