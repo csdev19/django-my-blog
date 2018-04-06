@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+  {% for public in object_list %}
+    <div>
+      <h1>{{ public.title }}</h1>
+      <h2>{{ public.created_by }}</h2>
+      <p>{{ public.content }}</p>
+    </div>  
+  {% endfor %}
+
+  <a href="{% url 'home' %}">Go to Home</a>
+
+{% endblock content %}

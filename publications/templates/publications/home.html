@@ -1,0 +1,13 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+  <h1>Estas en home</h1>
+
+  <nav>
+    <ul>
+      <li><a href="{% url 'users:home' %}">Go to users</a></li>
+      <li><a href="{% url 'publications:home' %}">Go to publications</a></li>
+    </ul>
+  </nav>
+
+{% endblock content %}

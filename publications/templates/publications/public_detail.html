@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+    <div>
+      <h1>{{ object.title }}</h1>
+      <h2>{{ object.created_by }}</h2>
+      <p>{{ object.content }}</p>
+      <h3>{{ object.stars }}</h3>
+    </div>  
+
+    
+    {% include 'comments/comments.html' %}
+
+{% endblock content %}
