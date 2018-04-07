@@ -2,14 +2,40 @@
 
 {% block content %}
 
-  {% for public in object_list %}
-    <div>
-      <h1>{{ public.title }}</h1>
-      <h2>{{ public.created_by }}</h2>
-      <p>{{ public.content }}</p>
-    </div>  
-  {% endfor %}
+  <div class="container">
+    <!--<div class="center">-->
+    {% for public in object_list %}
+      <div class="row">
+        <div class="card">
+          <div class="center">
+            <div class="z-depth-3 white-text pink">
+              <h1>{{ public.title }}</h1>
+            </div>
+            <!-- img -->
+            <div class="col s2">
+              <img src="" alt="">
+            </div>
+            <div class="col s10">
+              <h2 class="card-title">{{ public.created_by }}</h2>
+            </div>
+            <div class="card-container">
+              <p>{{ public.content }}</p>
+            </div>
+            <div class="card-action details"><a href='#'>Get details</a></div>
+          </div>
+        </div>  
+      </div>  
+    {% endfor %}
+  </div>
+  <style>
 
-  <a href="{% url 'home' %}">Go to Home</a>
+    .details a {
+      font-size: 18px;
+      text-decoration: underline;
+    }
+
+  </style>
+
+<!--  <a href="{% url 'home' %}">Go to Home</a>-->
 
 {% endblock content %}

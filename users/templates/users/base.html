@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}{% endblock title %}</title>
-  <link rel="stylesheet" href="">
-  {% block styles %}
-  {% endblock styles %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}">
+  {% block styles %}{% endblock styles %}
 </head>
 <body>
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{% url "home" %}" class="brand-logo">My Blog</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Go to Home</a></li>
+        <li><a href="{% url 'users:home' %}">Go to User</a></li>
+        <li><a href="{% url 'publications:home' %}">Go to Publications</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="{% url 'users:home' %}">Go to Home</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<style>
+    ul li a {
+    font-size: 17px !important;
+  }
+
+  .icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+    font-size: inherit;
+  }
+</style>
+ 
+
   {% block content %}
   {% endblock content %}
+
+
+
+<footer class="page-footer orange">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Non Company</h5>
+        <p class="grey-text text-lighten-4">User materialize para el frontend de este proyecto </p>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+  
+
+
+  {% block js %}
+
+  {% endblock js %}
+  <script src="{% static "materialize/js/materialize.min.js" %}"></script>
+
 </body>
 </html>

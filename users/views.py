@@ -6,6 +6,10 @@ from .models import User
 class UsersHome(TemplateView):
     template_name = 'users/home.html'
 
+    def get_context_data (self, **kwargs):
+        context = User
+        return context
+
 class UsersDetail(DetailView):
     model = User
 
